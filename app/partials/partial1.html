@@ -1,0 +1,25 @@
+<h1>Area Chart</h1>
+
+                
+<div class="container-fluid">
+            <div class="row-fluid">
+                <div>
+                <strong>Area Chart with Angular &amp; d3</strong>
+  
+                <p>Click a data point on the line to simulate a data drill-down effect.</p>
+                </div>
+                <div class="span10" style="height:400px">
+                    <fs:area 
+                        bind="results.facets.Times"
+                        duration="750"
+                        height="400"
+                        interpolate="true"
+                        on-click="filterSearchA" />
+                </div>
+
+               
+
+            </div>
+        </div>
+
+

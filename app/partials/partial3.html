@@ -1,0 +1,31 @@
+<h1>Pie &amp; Donut Chart</h1>
+
+
+            
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+            <div><strong>Pie &amp; Donut Chart with Angular &amp; d3 </strong></div>
+            <div class="span5" style="height:350px; width:350px;">
+                <fs:donut 
+                    outer-radius="200"
+                    inner-radius="75"
+                    duration="750"
+                    on-click="filterSearchA" 
+                    bind="results.facets.Product" />
+            </div>
+            
+            <div style="height:200px; width:200px; float:right;">
+                <fs:pie 
+                    outer-radius="100"
+                    duration="750"
+                    on-click="filterSearchA" 
+                    bind="results.facets.Sex" />
+
+            </div>
+        
+        </div>
+</div>
+
+<h3>Click a section on the first pie chart to drill down data that is bound to the second pie chart. Click twice to refresh the data using ElasticSearch.</h3>
+
