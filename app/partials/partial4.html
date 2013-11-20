@@ -1,21 +1,9 @@
+<h1 id="partialTitle">Reusable Vertical Bar Chart</h1>
 
-<h1>Horizontal Bar Chart</h1>
-<!--<p>
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p> -->
+<div><strong>Vertical Bar Chart with Angular &amp; d3</strong></div>
+    <chart-form></chart-form>
+    <bar-chart height="options.height" data="data" hovered="hovered(args)"></bar-chart>
+    <!--<bar-chart height="300" data="data" hovered="hovered(args)></bar-chart>-->
 
-
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div><strong>Horizontal Bar Chart with Angular &amp; d3</strong></div>
-        <div class="span10" style="height:200px">
-            <fs:bar
-                width="900"
-                height="175"
-                duration="750"
-                on-click="filterSearchA"
-                bind="results.facets.Product"
-            />
-        </div>
-    </div>
-</div>
+<h3>Select the "Update Data" button to see the graph dynamically transition to the new data.</h3>
+<p>(Note known bug: the graph sometimes disappears when angular routes to a new view and then back again. This is currently being investigated. Refresh brings it back.)</p>

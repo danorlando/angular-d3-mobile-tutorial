@@ -17,12 +17,12 @@ describe('my app', function() {
   describe('view1', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+      browser.get('http://localhost:8000/app/index.html#/view1');
     });
 
 
     it('should render Area Chart when user navigates to /view1', function() {
-      expect(element('[ng-view] h1:first').getText()).
+      expect(element(by.id('partialTitle')).getText()).
         toEqual('Area Chart');
     });
 
@@ -32,12 +32,12 @@ describe('my app', function() {
   describe('view2', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view2');
+      browser.get('http://localhost:8000/app/index.html#/view2');
     });
 
 
     it('should render Date Histogram when user navigates to /view2', function() {
-      expect(element('[ng-view] h1:first').getText()).
+      expect(element(by.id('partialTitle')).getText()).
         toEqual('Date Histogram');
     });
 
@@ -46,12 +46,12 @@ describe('my app', function() {
     describe('view3', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view3');
+      browser.get('http://localhost:8000/app/index.html#/view3');
     });
 
 
     it('should render Pie & Donut Chart when user navigates to /view3', function() {
-      expect(element('[ng-view] h1:first').getText()).
+      expect(element(by.id('partialTitle')).getText()).
         toEqual('Pie & Donut Chart');
     });
 
@@ -60,12 +60,12 @@ describe('my app', function() {
     describe('view4', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view4');
+      browser.get('http://localhost:8000/app/index.html#/view4');
     });
 
 
     it('should render Bar Chart when user navigates to /view4', function() {
-      expect(element('[ng-view] h1:first').getText()).
+      expect(element(by.id('partialTitle')).getText()).
         toEqual('Reusable Vertical Bar Chart');
     });
 
