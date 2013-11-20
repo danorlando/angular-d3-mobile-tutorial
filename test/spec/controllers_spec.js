@@ -8,7 +8,7 @@ describe('controllers', function(){
   describe('settings', function() {
   	 var $scope = {};
   	 var ctrl1 = $controller('MyCtrl1', {$scope : $scope});
-
+  	 
   	 expect($scope.data).toEqual([1, 2, 3, 4];);
 
   })
