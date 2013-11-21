@@ -239,3 +239,15 @@ h3 {
   /* useful if you don't want a bg color from leaking outside the border: */
   background-clip: padding-box; /* Android 2.2+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 4+ */
 }
+
+.axis path,
+      .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
+      }
+      
+      .axis text {
+        font-family: sans-serif;
+        font-size: 11px;
+      }

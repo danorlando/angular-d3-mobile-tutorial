@@ -4,11 +4,6 @@
 
 
 angular.module('myApp.directives', [])
-  .directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  }])
   .directive('barChart', function(){
             var chart = d3.custom.barChart();
             return {
@@ -34,7 +29,7 @@ angular.module('myApp.directives', [])
                         chartEl.call(chart.height(scope.height));
                     })
                 }
-            }
+            };
         })
     .directive('chartForm', function(){
         return {
@@ -51,7 +46,28 @@ angular.module('myApp.directives', [])
                     '<input type="range" ng-model="options.height" min="100" max="800"/>' +
                     '<br /><button ng-click="update()">Update Data</button>' +
                     '<br />Hovered bar data: {{barValue}}</div>'
-        }
+        };
+    })
+    .directive('scatterPlot', function(){
+        var plot = d3.custom.scatterPlot();
+        return {
+            restrict: 'E',
+            replace: true,
+            template: '<div class="plot"></div>',
+            scope:{
+                    data: '=data',
+                    hovered: '&hovered'
+                },
+            link: function(scope, element, attrs) {
+                var chartEl = d3.select(element[0]);
+                scope.$watch('data', function(newVal, oldVal) {
+                    chartEl.datum(newVal).call(plot);
+                })
+
+            }
+            
+          //  link: function($scope, iElm, iAttrs, controller) 
+        };
     });
 
 

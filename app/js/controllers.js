@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', ['$scope', function AppCtrl ($scope) {
+angular.module('myApp.controllers', [])
+  .controller('MyCtrl1', ['$scope', function AppCtrl ($scope) {
             $scope.options = {width: 500, height: 300, 'bar': 'aaa'};
             $scope.data = [1, 2, 3, 4];
             $scope.hovered = function(d){
@@ -11,6 +11,19 @@ angular.module('myApp.controllers', []).
                 $scope.$apply();
             };
             $scope.barValue = 'None';
+
+  }])
+  .controller('ScatterCtrl', ['$scope', function ScatterPlotCtrl ($scope) {
+            $scope.options = {width: 500, height: 500, 'bar': 'aaa'};
+            $scope.data = [
+                [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+                [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
+              ];
+            $scope.hovered = function(d){
+                $scope.plotValue = d;
+                $scope.$apply();
+            };
+            $scope.plotValue = 'None';
 
   }])
   .controller('MyCtrl2', function($scope) {

@@ -24,7 +24,7 @@ angular.module('charts', [])
                         chartEl.call(chart.height(scope.height));
                     })
                 }
-            }
+            };
         })
         .directive('chartForm', function(){
             return {

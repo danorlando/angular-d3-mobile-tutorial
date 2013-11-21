@@ -21,5 +21,7 @@ config(['$routeProvider', function($routeProvider) {
                                   controller: 'MyCtrl2'});
   $routeProvider.when('/view4', {templateUrl: 'partials/partial4.html', 
                                   controller: 'MyCtrl1'});
+  $routeProvider.when('/view5', {templateUrl: 'partials/partial5.html', 
+                                  controller: 'ScatterCtrl'});
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
