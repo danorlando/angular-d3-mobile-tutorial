@@ -1,0 +1,22 @@
+[
+     {"date":"20101001","New York":"59.5","San Francisco":"57.0","Austin":"72.2"},
+     {"date":"20101002","New York":"59.5","San Francisco":"53.4","Austin":"67.7"},
+     {"date":"20101003","New York":"59.0","San Francisco":"53.4","Austin":"69.4"},
+     {"date":"20101004","New York":"59.4","San Francisco":"57.4","Austin":"68.0"},
+     {"date":"20101005","New York":"58.5","San Francisco":"42.7","Austin":"72.4"},
+     {"date":"20101006","New York":"62.5","San Francisco":"54.7","Austin":"77.0"},
+     {"date":"20101007","New York":"60.8","San Francisco":"53.5","Austin":"82.3"},
+     {"date":"20101008","New York":"61.0","San Francisco":"52.5","Austin":"78.9"},
+     {"date":"20101009","New York":"62.5","San Francisco":"52.9","Austin":"75.3"},
+     {"date":"20101010","New York":"65.5","San Francisco":"54.0","Austin":"66.6"},
+     {"date":"20111011","New York":"68.7","San Francisco":"61.1","Austin":"70.3"},
+     {"date":"20111012","New York":"61.8","San Francisco":"61.5","Austin":"75.3"},
+     {"date":"20111013","New York":"63.0","San Francisco":"64.3","Austin":"76.6"},
+     {"date":"20111014","New York":"66.9","San Francisco":"87.1","Austin":"66.6"},
+     {"date":"20111015","New York":"61.7","San Francisco":"64.6","Austin":"68.0"},
+     {"date":"20111016","New York":"61.8","San Francisco":"61.6","Austin":"70.6"},
+     {"date":"20111017","New York":"62.8","San Francisco":"61.1","Austin":"71.1"},
+     {"date":"20111018","New York":"60.8","San Francisco":"59.2","Austin":"70.0"},
+     {"date":"20111019","New York":"62.1","San Francisco":"58.9","Austin":"61.6"},
+     {"date":"20111020","New York":"65.1","San Francisco":"57.2","Austin":"37.4"}
+]

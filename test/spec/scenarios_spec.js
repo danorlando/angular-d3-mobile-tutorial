@@ -70,4 +70,30 @@ describe('my app', function() {
     });
 
   });
+
+    describe('view5', function() {
+
+    beforeEach(function() {
+      browser.get('http://localhost:8000/app/index.html#/view5');
+    });
+
+
+    it('should render Scatter Plot when user navigates to /view5', function() {
+      expect(element(by.id('partialTitle')).getText()).
+        toEqual('Reusable Scatter Plot');
+    });
+
+  });
+
+    describe('view6', function() {
+
+    beforeEach(function() {
+      browser.get('http://localhost:8000/app/index.html#/view6');
+    });
+
+
+    it('should render multiline graph when user navigates to /view6', function() {
+      expect(element(by.id('partialTitle')).getText()).
+        toEqual('Multiline Graph');
+    });
 });

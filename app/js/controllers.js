@@ -26,6 +26,9 @@ angular.module('myApp.controllers', [])
             $scope.plotValue = 'None';
 
   }])
+  .controller('MultilineCtrl', ['$scope', function MultilineCtrl ($scope) {
+        
+  }])
   .controller('MyCtrl2', function($scope) {
         var resultsA = {
         	facets: {
