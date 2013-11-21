@@ -25,5 +25,7 @@ config(['$routeProvider', function($routeProvider) {
                                   controller: 'ScatterCtrl'});
   $routeProvider.when('/view6', {templateUrl: 'partials/partial6.html', 
                                   controller: 'MultilineCtrl'});
+  $routeProvider.when('/view7', {templateUrl: 'partials/partial7.html', 
+                                  controller: 'BivariateCtrl'});
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);

@@ -27,6 +27,9 @@ angular.module('myApp.controllers', [])
 
   }])
   .controller('MultilineCtrl', ['$scope', function MultilineCtrl ($scope) {
+
+  }])
+  .controller('BivariateCtrl', ['$scope', function MultilineCtrl ($scope) {
         
   }])
   .controller('MyCtrl2', function($scope) {
