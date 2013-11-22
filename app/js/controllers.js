@@ -27,9 +27,15 @@ angular.module('myApp.controllers', [])
 
   }])
   .controller('MultilineCtrl', ['$scope', function MultilineCtrl ($scope) {
-
+     
   }])
-  .controller('BivariateCtrl', ['$scope', function MultilineCtrl ($scope) {
+  .controller('BivariateCtrl', ['$scope', function BivariateCtrl ($scope) {
+        
+  }])
+  .controller('BulletCtrl', ['$scope', function BulletCtrl ($scope) {
+        
+  }])
+   .controller('ColumnCtrl', ['$scope', function ColumnCtrl ($scope) {
         
   }])
   .controller('MyCtrl2', function($scope) {

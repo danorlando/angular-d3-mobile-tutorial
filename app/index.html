@@ -2,9 +2,10 @@
 <html lang="en" ng-app="myApp" class="ng-scope">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>D3 on AngularJS App</title>
   <link rel="stylesheet" href="css/app.css"/>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="lib/nvd3-master/src/nv.d3.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -20,35 +21,43 @@
     <li><a href="#/view5">Scatter Plot</a></li>
     <li><a href="#/view6">Multiline Graph</a></li>
     <li><a href="#/view7">Bivariate Chart</a></li>
+    <li><a href="#/view8">Column Chart</a></li>
+    <li><a href="#/view9">Bullet Chart</a></li>
   </ul>
 
-<div class="view-animate-container box_round box_shadow box_gradient box_textshadow">
+<div id="container" class="view-animate-container box_round box_shadow box_gradient box_textshadow">
 
-  <div ng-view class="view-animate"></div>
+  <div id="view" ng-view class="view-animate"></div>
 </div>
 
 
-  <p>Angular Charting App by Dan Orlando: v<span app-version></span></p>
+  <p>Angular D3 Charting App by Dan Orlando</p>
  <hr>
+  <!-- <script type="text/javascript" src="lib/jquery-1.10.2.min.js"></script>-->
   <!-- In production use: -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-  
  <!-- <script src="lib/angular/angular.js"></script> -->
   <script type="text/javascript" src="lib/prototype.js"></script>
   <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
   <script type="text/javascript" src="lib/angular/angular-animate.min.js"></script> 
-  <script type="text/javascript" src="lib/dangle.min.js"></script>
+  <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+ <!-- <script type="text/javascript" src="lib/dangle/src/modules/column/column.js"></script>-->
+  <script type="text/javascript" src="lib/dangle.min.js"></script> 
   <script type="text/javascript" src="lib/elastic.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/services.js"></script>
   <script type="text/javascript" src="js/controllers.js"></script>
   <script type="text/javascript" src="js/filters.js"></script>
   <script type="text/javascript" src="js/directives.js"></script>
-  <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
   <script type="text/javascript" src="js/reusable_chart.js"></script>
   <script type="text/javascript" src="js/reusable_scatterplot.js"></script>
-  <script type="text/javascript" src="js/multiline_chart.js"></script>
   <script type="text/javascript" src="js/bivariate_chart.js"></script>
+  <script type="text/javascript" src="js/multiline_chart.js"></script>
+
+  <script src="lib/nvd3-master/nv.d3.js"></script>
+  <script src="lib/nvd3-master/src/utils.js"></script>
+  <script src="lib/nvd3-master/src/models/bullet.js"></script>
+  <script src="lib/nvd3-master/src/models/bulletChart.js"></script>
 
 </body>
 </html>

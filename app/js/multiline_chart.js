@@ -8,20 +8,27 @@ var MultilineChart = Class.create({
 	  workOnElement: function(element) {
 		this.element = element;
 	  },
-	  generateGraph: function() {
+	  generateGraph: function(scope) {
 		//d3 specific coding
-                var margin = {
-                            top: 20, right: 80, bottom: 30, left: 50},
-                            width = 960 - margin.left - margin.right,
-                            height = 500 - margin.top - margin.bottom;
+               
+
+                var margin = { top: 20, right: 80, bottom: 30, left: 50 };
+                var w = 960 - margin.left - margin.right;
+                var h = 500 - margin.top - margin.bottom;
+              //  var h = viewport[0].offsetHeight - margin.top - margin.bottom - 200;
+             //  var w = scope.width - margin.left - margin.right;   
+              // var h = scope.height - margin.top - margin.bottom; 
+                 //   console.log(viewport[0].offsetWidth);
+                  //  console.log("width = " + w);
+                   // console.log("height = " + h);
                             
                 var parseDate = d3.time.format(this.d3Format).parse;
                 
                 var x = d3.time.scale()
-                    	.range([0, width]);
+                    	.range([0, w]);
                         
                 var y = d3.scale.linear()
-                        .range([height, 0]);
+                        .range([h, 0]);
                         
                 var color = d3.scale.category10();
                 
@@ -36,14 +43,16 @@ var MultilineChart = Class.create({
                 var line = d3.svg.line()
                     .interpolate("basis")
                     .x(function(d) { return x(d.date); })
-                    .y(function(d) { return y(d.temperature); });
+                    .y(function(d) { return y(d.temperature); });  
                     
-                var svg = d3.select(this.element).append("svg")
-                            .attr("width", width + margin.left + margin.right)
-                            .attr("height", height + margin.top + margin.bottom)
+                var svg = d3.select(this.element).append("svg").attr("preserveAspectRatio", "xMinYMin")
+                            .attr("viewBox", "0 0 " + (w + margin.left + margin.right) + " " + (h + margin.top + margin.bottom))
+                            .attr("width", w + margin.left + margin.right)
+                            .attr("height", h + margin.top + margin.bottom)
                             .append("g")
                     		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-                            
+                
+
                 d3.json(this.datajson, function(error, data) { 
                         color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
                         data.forEach(function(d) {
@@ -71,7 +80,7 @@ var MultilineChart = Class.create({
                         
         		 svg.append("g")
                           .attr("class", "x axis")
-                          .attr("transform", "translate(0," + height + ")")
+                          .attr("transform", "translate(0," + h + ")")
                           .call(xAxis);
                           
     			   svg.append("g")

@@ -27,5 +27,9 @@ config(['$routeProvider', function($routeProvider) {
                                   controller: 'MultilineCtrl'});
   $routeProvider.when('/view7', {templateUrl: 'partials/partial7.html', 
                                   controller: 'BivariateCtrl'});
+  $routeProvider.when('/view8', {templateUrl: 'partials/partial8.html', 
+                                  controller: 'ColumnCtrl'});
+  $routeProvider.when('/view9', {templateUrl: 'partials/partial9.html', 
+                                  controller: 'BulletCtrl'});
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
