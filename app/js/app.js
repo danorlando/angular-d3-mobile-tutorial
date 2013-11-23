@@ -2,13 +2,13 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+angular.module('ccd3', [
   'ngRoute',
   'ngAnimate',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers',
+  'ccd3.filters',
+  'ccd3.services',
+  'ccd3.directives',
+  'ccd3.controllers',
   'elasticjs.service',
   'dangle'
 ]).
@@ -28,7 +28,7 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view7', {templateUrl: 'partials/partial7.html', 
                                   controller: 'BivariateCtrl'});
   $routeProvider.when('/view8', {templateUrl: 'partials/partial8.html', 
-                                  controller: 'ColumnCtrl'});
+                                  controller: 'StackedAreaCtrl'});
   $routeProvider.when('/view9', {templateUrl: 'partials/partial9.html', 
                                   controller: 'BulletCtrl'});
   $routeProvider.otherwise({redirectTo: '/view1'});

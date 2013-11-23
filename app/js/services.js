@@ -6,7 +6,7 @@
 Angular.js service wrapping the elastic.js API. This module can simply
 be injected into your angular controllers. 
 */
-angular.module('myApp.services', [])
+angular.module('ccd3.services', [])
   .factory('ejsResource', ['$http', function ($http) {
 
   return function (config) {

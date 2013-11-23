@@ -8,19 +8,11 @@ var MultilineChart = Class.create({
 	  workOnElement: function(element) {
 		this.element = element;
 	  },
-	  generateGraph: function(scope) {
-		//d3 specific coding
-               
+	  generateGraph: function() {
 
                 var margin = { top: 20, right: 80, bottom: 30, left: 50 };
                 var w = 960 - margin.left - margin.right;
                 var h = 500 - margin.top - margin.bottom;
-              //  var h = viewport[0].offsetHeight - margin.top - margin.bottom - 200;
-             //  var w = scope.width - margin.left - margin.right;   
-              // var h = scope.height - margin.top - margin.bottom; 
-                 //   console.log(viewport[0].offsetWidth);
-                  //  console.log("width = " + w);
-                   // console.log("height = " + h);
                             
                 var parseDate = d3.time.format(this.d3Format).parse;
                 
@@ -52,7 +44,9 @@ var MultilineChart = Class.create({
                             .append("g")
                     		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
                 
-
+              /* parsing the json data: Note that we use d3's native capabilities instead of doing this in
+                 a controller with angular because it keeps this class decoupled from requiring the presence
+                 of angular and d3 has very powerful built-in binding capabilites. */ 
                 d3.json(this.datajson, function(error, data) { 
                         color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
                         data.forEach(function(d) {
@@ -69,7 +63,6 @@ var MultilineChart = Class.create({
                     });
                     
                 if (error) return console.warn(error);
-                //console.log(this.xaxisName); 
                 
                 x.domain(d3.extent(data, function(d) { return d.date; }));
                 
@@ -108,7 +101,36 @@ var MultilineChart = Class.create({
                      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")"; })
                      .attr("x", 3)
                      .attr("dy", ".35em")
-                     .text(function(d) { return d.name; });   		    
+                     .text(function(d) { return d.name; });   
+
+                //set animations
+                svg.transition()
+                  .duration(1000)
+                  .call(chart);
+
+                window.transition = function() {
+                  vis.datum(randomize)
+                    .transition()
+                    .duration(1000)
+                    .call(chart);
+                };
+
+              function randomize(d) {
+                if (!d.randomizer) d.randomizer = randomizer(d);
+                d.ranges = d.ranges.map(d.randomizer);
+                d.markers = d.markers.map(d.randomizer);
+                d.measures = d.measures.map(d.randomizer);
+                return d;
+              }
+
+              function randomizer(d) {
+                var k = d3.max(d.ranges) * .2;
+                return function(d) {
+                  return Math.max(0, d + k * (Math.random() - .5));
+                };
+              }
+            d3.select('body').on('click', window.transition);   
+              		    
             }.bind(this));
 	 }
 });

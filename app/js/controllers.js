@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
+angular.module('ccd3.controllers', [])
   .controller('MyCtrl1', ['$scope', function AppCtrl ($scope) {
             $scope.options = {width: 500, height: 300, 'bar': 'aaa'};
             $scope.data = [1, 2, 3, 4];
@@ -33,9 +33,11 @@ angular.module('myApp.controllers', [])
         
   }])
   .controller('BulletCtrl', ['$scope', function BulletCtrl ($scope) {
-        
+        $scope.data = [
+              {"title":"Revenue","subtitle":"US$, in thousands","ranges":[150,225,300],"measures":[220],"markers":[250]}
+            ];
   }])
-   .controller('ColumnCtrl', ['$scope', function ColumnCtrl ($scope) {
+   .controller('StackedAreaCtrl', ['$scope', function ColumnCtrl ($scope) {
         
   }])
   .controller('MyCtrl2', function($scope) {
