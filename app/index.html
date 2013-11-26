@@ -2,29 +2,38 @@
 <html lang="en" ng-app="ccd3" class="ng-scope">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D3 on AngularJS App</title>
   <link rel="stylesheet" href="css/app.css"/>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
   <link href="lib/nvd3-master/src/nv.d3.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<nav>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">d3 on Angular</a>
+    </div>
 
-</nav>
-
-  <ul class="menu">
-    <li><a href="#/view1">Area Chart</a></li>
-    <li><a href="#/view2">Date Histogram</a></li>
-    <li><a href="#/view3">Pie &amp; Donut</a></li>
-    <li><a href="#/view4">Bar Chart</a></li>
-    <li><a href="#/view5">Scatter Plot</a></li>
-    <li><a href="#/view6">Multiline Graph</a></li>
-    <li><a href="#/view7">Bivariate Chart</a></li>
-    <li><a href="#/view8">Stacked Area</a></li>
-    <li><a href="#/view9">Bullet Chart</a></li>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+    <li><a href="#/multiline">Multiline</a></li>
+    <li><a href="#/bivariate">Bivariate</a></li>
+    <li><a href="#/bullet">Bullet</a></li>
+    <!--<li><a href="#/bar">Bar</a></li>-->
+    <li><a href="#/area">Area Chart</a></li>
+    <li><a href="#/date-histo">Date Histogram</a></li>
+    <li><a href="#/pie-dohnut">Pie &amp; Donut</a></li>
   </ul>
-
+</div>
+</nav>
 <div id="container" class="view-animate-container box_round box_shadow box_gradient box_textshadow">
 
   <div id="view" ng-view class="view-animate"></div>
@@ -33,6 +42,9 @@
 
   <p>Angular D3 Charting App by Dan Orlando</p>
  <hr>
+ <script>
+
+ </script>
   <!-- <script type="text/javascript" src="lib/jquery-1.10.2.min.js"></script>-->
   <!-- In production use: -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
@@ -41,6 +53,10 @@
   <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
   <script type="text/javascript" src="lib/angular/angular-animate.min.js"></script> 
   <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+  
+  <script src="lib/nvd3-master/nv.d3.js"></script>
  <!-- <script type="text/javascript" src="lib/dangle/src/modules/column/column.js"></script>-->
   <script type="text/javascript" src="lib/dangle.min.js"></script> 
   <script type="text/javascript" src="lib/elastic.js"></script>
@@ -52,18 +68,12 @@
   <script type="text/javascript" src="js/bivariate_chart.js"></script>
   <script type="text/javascript" src="js/multiline_chart.js"></script>
 
-  <script src="lib/nvd3-master/nv.d3.js"></script>
   <script src="lib/nvd3-master/src/utils.js"></script>
   <script src="lib/nvd3-master/src/models/bullet.js"></script>
   <script src="lib/nvd3-master/src/models/bulletChart.js"></script>
   <script src="lib/nvd3-master/src/models/axis.js"></script>
   <script src="lib/nvd3-master/src/tooltip.js"></script>
   <script src="lib/nvd3-master/src/interactiveLayer.js"></script>
-  <script src="lib/nvd3-master/src/models/legend.js"></script>
-  <script src="lib/nvd3-master/src/models/axis.js"></script>
-  <script src="lib/nvd3-master/src/models/scatter.js"></script>
-  <script src="lib/nvd3-master/src/models/stackedArea.js"></script>
-  <script src="lib/nvd3-master/src/models/stackedAreaChart.js"></script>
 
 </body>
 </html>

@@ -77,9 +77,13 @@ var MultilineChart = Class.create({
                           .call(xAxis);
                           
     			   svg.append("g")
-                             .attr("class", "y axis")
-                             .call(yAxis)
+                             
+                            .attr("class", "y axis")
+                            .call(yAxis)
                             .append("text")
+                            .transition()
+                            .duration(1000)
+                            .ease("cubic-in-out")
                             .attr("transform", "rotate(-90)")
                             .attr("y", this.yaxisPos)
                             .attr("dy", ".71em")
@@ -92,45 +96,27 @@ var MultilineChart = Class.create({
                               .attr("class", "city");
 
                             city.append("path")
+                              .transition()
+                              .duration(1000)
+                              .ease("cubic-in-out")
                               .attr("class", "line")
                               .attr("d", function(d) { return line(d.values); })
-                              .style("stroke", function(d) { return color(d.name); });
+                              .style("stroke", "black")
+                              .style("fill", function(d) { return color(d.name); })
+                              .style("opacity", ".5");
                               
                 city.append("text")
                      .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+                     .transition()
+                     .duration(1000)
+                     .ease("circle")
+                     .delay(function(d, i) { return i * 100; })
                      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")"; })
                      .attr("x", 3)
                      .attr("dy", ".35em")
                      .text(function(d) { return d.name; });   
-
-                //set animations
-                svg.transition()
-                  .duration(1000)
-                  .call(chart);
-
-                window.transition = function() {
-                  vis.datum(randomize)
-                    .transition()
-                    .duration(1000)
-                    .call(chart);
-                };
-
-              function randomize(d) {
-                if (!d.randomizer) d.randomizer = randomizer(d);
-                d.ranges = d.ranges.map(d.randomizer);
-                d.markers = d.markers.map(d.randomizer);
-                d.measures = d.measures.map(d.randomizer);
-                return d;
-              }
-
-              function randomizer(d) {
-                var k = d3.max(d.ranges) * .2;
-                return function(d) {
-                  return Math.max(0, d + k * (Math.random() - .5));
-                };
-              }
-            d3.select('body').on('click', window.transition);   
+           
               		    
-            }.bind(this));
+          }.bind(this));
 	 }
 });

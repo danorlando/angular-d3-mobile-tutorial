@@ -3,29 +3,6 @@
 /* Controllers */
 
 angular.module('ccd3.controllers', [])
-  .controller('MyCtrl1', ['$scope', function AppCtrl ($scope) {
-            $scope.options = {width: 500, height: 300, 'bar': 'aaa'};
-            $scope.data = [1, 2, 3, 4];
-            $scope.hovered = function(d){
-                $scope.barValue = d;
-                $scope.$apply();
-            };
-            $scope.barValue = 'None';
-
-  }])
-  .controller('ScatterCtrl', ['$scope', function ScatterPlotCtrl ($scope) {
-            $scope.options = {width: 500, height: 500, 'bar': 'aaa'};
-            $scope.data = [
-                [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
-                [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
-              ];
-            $scope.hovered = function(d){
-                $scope.plotValue = d;
-                $scope.$apply();
-            };
-            $scope.plotValue = 'None';
-
-  }])
   .controller('MultilineCtrl', ['$scope', function MultilineCtrl ($scope) {
      
   }])
@@ -37,10 +14,7 @@ angular.module('ccd3.controllers', [])
               {"title":"Revenue","subtitle":"US$, in thousands","ranges":[150,225,300],"measures":[220],"markers":[250]}
             ];
   }])
-   .controller('StackedAreaCtrl', ['$scope', function ColumnCtrl ($scope) {
-        
-  }])
-  .controller('MyCtrl2', function($scope) {
+  .controller('AreaHistoPieCtrl', function($scope) {
         var resultsA = {
         	facets: {
     			Product : {
@@ -154,4 +128,17 @@ angular.module('ccd3.controllers', [])
         $scope.results = resultsA;
         var currentResults = 'A';
 
-    });
+    })
+  .controller('ScatterCtrl', ['$scope', function ScatterPlotCtrl ($scope) {
+            $scope.options = {width: 500, height: 500, 'bar': 'aaa'};
+            $scope.data = [
+                [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+                [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
+              ];
+            $scope.hovered = function(d){
+                $scope.plotValue = d;
+                $scope.$apply();
+            };
+            $scope.plotValue = 'None';
+
+  }]);

@@ -4,3 +4,5 @@ angular-sublime-1.sublime-project
 .DS_Store
 index-async.html
 angular/*
+.idea/*
+.travis.yml

@@ -4,104 +4,28 @@
 
 
 angular.module('ccd3.directives', [])
-.directive('', ['', function(){
+.directive('ccBar', [function(){
     // Runs during compile
     return {
          restrict: 'E',
          replace: true,
          transclude: false,
          scope: {
+            bind: "=",
             onClick: "=",
             width: "=",
             height: "=",
-            datajson: "=",
-            yaxisName: "=",
-            yaxisPos: "=",
-         },  // {} = isolate, true = child, false/undefined = no change
-        
-        
-        // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-        link: function($scope, iElm, iAttrs, controller) {
+            duration: '@'
+         },
+         link: function(scope, element, attrs) {
+
             var html = "<div id='" + attrs.id + "'class='" + attrs.class + "' ></div>"; // the HTML to be produced
             var newElem = $(html);
             element.replaceWith(newElem);
-
-            var width = $scope.width || 960;
-            var height = $scope.height || 500;
-            var margin = {top: 5, right: 40, bottom: 20, left: 20};
-
-            //an example of harmonizing colors between visualizations
-            //observe that Consumer Discretionary and Consumer Staples have 
-            //been flipped in the second chart
-            var colors = d3.scale.category20();
-            keyColor = function(d, i) {return colors(d.key)};
-
-            var chart;
-            nv.addGraph(function() {
-              chart = nv.models.stackedAreaChart()
-                .width(width - margin.right - margin.left)
-                .height(height - margin.top - margin.bottom)
-                .useInteractiveGuideline(true)
-                .x(function(d) { return d[0] })
-                .y(function(d) { return d[1] })
-                .color(keyColor)
-                .transitionDuration(300);
-
-          /*  d3.json(this.datajson, function(error, data) {
-                          data.forEach(function(d) {
-                            d.date = parseDate(d.date);
-                            d.low = +d.low;
-                            d.high = +d.high;
-                          });
-                          
-                           if (error) return console.warn(error);
-                                             
-                          x.domain(d3.extent(data, function(d) { return d.date; }));
-                          y.domain([d3.min(data, function(d) { return d.low; }), d3.max(data, function(d) { return d.high; })]);
-                          
-                    svg.append("path")
-                              .datum(data)
-                              .attr("class", "area")
-                              .attr("d", area);
-                              
-                    svg.append("g")
-                              .attr("class", "x axis")
-                              .attr("transform", "translate(0," + height + ")")
-                              .call(xAxis);
-                              
-                    svg.append("g")
-                              .attr("class", "y axis")
-                              .call(yAxis)
-                              .append("text")
-                              .attr("transform", "rotate(-90)")
-                              .attr("y", this.yaxisPos)
-                              .attr("dy", ".71em")
-                              .style("text-anchor", "end")
-                              .text(this.yaxisName);                        
-            }*/
-
-                chart.xAxis
-                      .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
-
-                  chart.yAxis
-                      .tickFormat(d3.format(',.2f'));
-
-                  d3.select('#'+attrs.id)
-                    .selectAll("svg")
-                    .datum($scope.data)
-                    .transition().duration(0)
-                    .call(chart);
-
-                  nv.utils.windowResize(chart.update);
-
-                  chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
-
-                  return chart;
-                });
-
         }
-    };
-}]);
+    }
+}])
+
 .directive('ccMultilinechart', function () { // Angular Directive
     return {
         restrict: 'E', // Directive Scope is Element

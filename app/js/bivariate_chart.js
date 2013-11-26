@@ -59,7 +59,9 @@ var BivariateChart = Class.create({
                     svg.append("path")
                               .datum(data)
                               .attr("class", "area")
-                              .attr("d", area);
+                              .attr("d", area)
+                              .style("stroke", "black")
+                              .style("fill", "green");
                               
                     svg.append("g")
                               .attr("class", "x axis")
@@ -74,7 +76,10 @@ var BivariateChart = Class.create({
                               .attr("y", this.yaxisPos)
                               .attr("dy", ".71em")
                               .style("text-anchor", "end")
-                              .text(this.yaxisName);            		    
+                              .text(this.yaxisName);  
+
+                
+                                         		    
             }.bind(this));
 	 }
 });

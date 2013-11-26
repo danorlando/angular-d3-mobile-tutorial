@@ -13,23 +13,19 @@ angular.module('ccd3', [
   'dangle'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html',
-                                 controller: 'MyCtrl2'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', 
-                                  controller: 'MyCtrl2'});
-  $routeProvider.when('/view3', {templateUrl: 'partials/partial3.html', 
-                                  controller: 'MyCtrl2'});
-  $routeProvider.when('/view4', {templateUrl: 'partials/partial4.html', 
-                                  controller: 'MyCtrl1'});
-  $routeProvider.when('/view5', {templateUrl: 'partials/partial5.html', 
-                                  controller: 'ScatterCtrl'});
-  $routeProvider.when('/view6', {templateUrl: 'partials/partial6.html', 
+  $routeProvider.when('/multiline', {templateUrl: 'partials/multiline.html', 
                                   controller: 'MultilineCtrl'});
-  $routeProvider.when('/view7', {templateUrl: 'partials/partial7.html', 
+  $routeProvider.when('/bivariate', {templateUrl: 'partials/bivariate.html', 
                                   controller: 'BivariateCtrl'});
-  $routeProvider.when('/view8', {templateUrl: 'partials/partial8.html', 
-                                  controller: 'StackedAreaCtrl'});
-  $routeProvider.when('/view9', {templateUrl: 'partials/partial9.html', 
+  $routeProvider.when('/bullet', {templateUrl: 'partials/bullet.html', 
                                   controller: 'BulletCtrl'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.when('/bar', {templateUrl: 'partials/bar.html', 
+                                  controller: 'BarCtrl'});
+  $routeProvider.when('/area', {templateUrl: 'partials/area.html',
+                                 controller: 'AreaHistoPieCtrl'});
+  $routeProvider.when('/date-histo', {templateUrl: 'partials/date-histo.html', 
+                                  controller: 'AreaHistoPieCtrl'});
+  $routeProvider.when('/pie-dohnut', {templateUrl: 'partials/pie-dohnut.html', 
+                                  controller: 'AreaHistoPieCtrl'});
+  $routeProvider.otherwise({redirectTo: '/multiline'});
 }]);
